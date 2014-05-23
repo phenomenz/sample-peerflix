@@ -1,0 +1,8 @@
+{
+  "name": "wo0torrent",
+  "main": "./index.js",
+  "version": "0.0.1",
+  "dependencies": {
+    "peerflix": "^0.4.0"
+  }
+}
