@@ -2,19 +2,16 @@ var peerflix = require('peerflix');
 
 var engine;
 
-function opentorrent(torrent) {
-    var opts={};
 
-    if (/^magnet:/.test(torrent)) {
-        startengine(torrent, opts);
-    }
-}
+var startengine = function(torrent) {
 
-var startengine = function(torrent, opts) {
-    if (!opts) {
-        opts = {};  
-    }
-    engine = peerflix(torrent,opts);
+    engine = peerflix(torrent,{
+            connections: 100,
+            uploads: 20,
+            path : '/sdcard/pt',
+            tmp : '/sdcard/tmppt',
+            dht  : 50
+    });
     var hotswaps = 0;
 
     engine.on('hotswap', function() {
@@ -44,4 +41,4 @@ var startengine = function(torrent, opts) {
    
 };
 
-startengine("magnet:?xt=urn:btih:QLQAC3XFSW6JLFLFEHYSTA6BJ7PCCBWN&dn=Star.Wars.The.Clone.Wars.S06E07.REPACK.WEBRip.x264-2HD&tr=udp://tracker.openbittorrent.com:80&tr=udp://tracker.publicbt.com:80&tr=udp://tracker.istole.it:80&tr=udp://open.demonii.com:80&tr=udp://tracker.coppersurfer.tk:80", {});
+startengine("magnet:?xt=urn:btih:QLQAC3XFSW6JLFLFEHYSTA6BJ7PCCBWN&dn=Star.Wars.The.Clone.Wars.S06E07.REPACK.WEBRip.x264-2HD&tr=udp://tracker.openbittorrent.com:80&tr=udp://tracker.publicbt.com:80&tr=udp://tracker.istole.it:80&tr=udp://open.demonii.com:80&tr=udp://tracker.coppersurfer.tk:80");
