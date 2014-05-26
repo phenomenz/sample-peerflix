@@ -35,7 +35,7 @@ var startengine = function(torrent, opts) {
     });
 
     engine.on('ready', function() {
-        engine.server.listen();
+        //engine.server.listen();
     });
 
     engine.server.once('error', function() {
