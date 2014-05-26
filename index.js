@@ -10,7 +10,8 @@ var startengine = function(torrent) {
             uploads: 20,
             path : '/sdcard/pt',
             tmp : '/sdcard/tmppt',
-            dht  : 50
+            dht  : 50,
+            port  : 8080
     });
     var hotswaps = 0;
 
